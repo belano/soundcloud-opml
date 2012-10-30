@@ -23,7 +23,7 @@ OPML_START = """<?xml version="1.0" encoding="UTF-8"?>
 		<title>Squeezebox Faves</title>
 	</head>
 	<body>
-		<outline text="Faves on MySqueezebox.com" title="Faves on MySqueezebox.com">"""
+		<outline text="Faves on radio-gladys-palmera" title="Faves on MySqueezebox.com">"""
 OPML_END = """		</outline>
 	</body>
 </opml>"""
@@ -55,7 +55,7 @@ def main():
 		for s_track in s_set_tracks:
 			s_track_title = s_track['title'].replace('"', '&quot;')
 			s_track_artwork_url = s_track['artwork_url']
-			s_track_stream_url = s_track['stream_url']
+			s_track_stream_url = s_track['stream_url'] + "?client_id=" + API_KEY
 
 			print OPML_TRACK_OUTLINE_FEED % {'title': s_track_title, 'artwork_url': s_track_artwork_url, 'stream_url': s_track_stream_url}
 
