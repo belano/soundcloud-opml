@@ -23,7 +23,7 @@ OPML_START = """<?xml version="1.0" encoding="UTF-8"?>
 		<title>Squeezebox Faves</title>
 	</head>
 	<body>
-		<outline text="Faves on radio-gladys-palmera" title="Faves on MySqueezebox.com">"""
+		<outline text="Faves on soundcloud" title="Faves on soundcloud">"""
 OPML_END = """		</outline>
 	</body>
 </opml>"""
