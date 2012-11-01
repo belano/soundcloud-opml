@@ -3,6 +3,7 @@
 import sys
 import urllib2
 import codecs, sys
+from xml.sax.saxutils import escape
 
 try:
 	import json
@@ -47,13 +48,13 @@ def main():
 
 	for set_url in RGP_SET_URLS:
 		s_set = get_set(RESOLVE_URL % {'sc_url': set_url, 'key': API_KEY})
-		s_set_title = s_set['title'].replace('"', '&quot;')
+		s_set_title = escape(s_set['title'], {'"': '&quot;'})
 		s_set_tracks = s_set['tracks']
 
 		print OPML_SET_OUTLINE_FEED % {'set_title': s_set_title} 
 
 		for s_track in s_set_tracks:
-			s_track_title = s_track['title'].replace('"', '&quot;')
+			s_track_title = escape(s_track['title'], {'"': '&quot;'})
 			s_track_artwork_url = s_track['artwork_url']
 			s_track_stream_url = s_track['stream_url'] + "?client_id=" + API_KEY
 

@@ -13,7 +13,7 @@ RGP_SET_URLS = [
 
 ## Running the script
 
-Redirects output both to screen and file
+Run sh script passing as argument the absolute path where the file will be generated 
 
 ```sh
 soundcloud-opml.sh /path/to/faves.opml
