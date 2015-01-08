@@ -1,22 +1,33 @@
-A simple python script for generating an opml file from a list of soundcloud sets which can be imported from logitech media server (ie. squeezebox server).
+A simple python script for generating an opml file from a list of soundcloud sets which 
+can be imported from logitech media server (ie. squeezebox server).
+
+## System requirements
+* Python 3
 
 ## Setup
-
-First edit soundcloud-opml.py and add your favourite soundcloud sets to the RGP_SET_URLS list (comma separated):
-
+1. Install soundcloud client `pip install soundcloud`
+2. Setup your client id, path and playlists in `$HOME/.config/soundcloud-opml/scopml.cfg`
 ```
-RGP_SET_URLS = [
-	'http://soundcloud.com/radio-gladys-palmera/sets/las-sesiones-de-gladys',
-	'http://soundcloud.com/radio-gladys-palmera/sets/latin-vintage-1'
-]
+[scopml]
+api_key = your_client_id
+path    = /tmp
+
+[playlists]
+sesiones-nanosonico = https://soundcloud.com/nanosonicoradio/sets/sesiones-musicales
+brand-new-wayo      = https://soundcloud.com/abelano/sets/brand-new-wayo
+...
 ```
 
 ## Running the script
-
-Run sh script passing as argument the absolute path where the file will be generated 
-
-```sh
-soundcloud-opml.sh /path/to/faves.opml
 ```
+soundcloud-opml.py [-h] [-k KEY] [-p PATH]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -k KEY, --key KEY     soundcloud client id
+  -p PATH, --path PATH  use a custom path this time
+```
+
+Will generate an opml file under specified path.
 
 
